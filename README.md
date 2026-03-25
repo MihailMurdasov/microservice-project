@@ -7,7 +7,7 @@
 ## Запуск
 
 ```
-git clone https://github.com/MihailMurdasov/microservice-project.git && cd microservice-project
+git clone https://github.com/chesluchilos/microservice-project.git && cd microservice-project
 ```
 
 ```

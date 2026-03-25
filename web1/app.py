@@ -21,16 +21,13 @@ class WebHandler(BaseHTTPRequestHandler):
             self.wfile.write(b"OK")
             return
         
-        # Основной эндпоинт отвечает именем контейнера
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.end_headers()
         
-        # Получаем имя текущего контейнера и имя сервиса из переменной окружения
-        hostname = socket.gethostname()  # Уникальный ID контейнера Docker
-        app_name = os.environ.get("APP_NAME", "UNKNOWN")  # WEB1 или WEB2 из docker-compose
+        hostname = socket.gethostname()
+        app_name = os.environ.get("APP_NAME", "UNKNOWN")
         
-        # Формируем ответ
         message = f"Hello from {app_name} ({hostname})\n"
         self.wfile.write(message.encode("utf-8"))
 

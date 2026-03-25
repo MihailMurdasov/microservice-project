@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  web1:
-    build: ./web1
-    container_name: web1
+  web:
+    build: ./web
+    container_name: web
     environment:
       - APP_NAME=WEB1
     networks:
@@ -17,21 +17,21 @@ services:
       retries: 3
       start_period: 5s
 
-  web2:
-    build: ./web2
-    container_name: web2
-    environment:
-      - APP_NAME=WEB2
-    networks:
-      - app-network
-    ports:
-      - "8000"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 5s
+  #web2:
+  #  build: ./web2
+  #  container_name: web2
+  #  environment:
+  #    - APP_NAME=WEB2
+  #  networks:
+  #    - app-network
+  #  ports:
+  #    - "8000"
+  #  healthcheck:
+  #    test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+  #    interval: 30s
+  #    timeout: 10s
+  #    retries: 3
+  #    start_period: 5s
 
   nginx:
     build: ./nginx
